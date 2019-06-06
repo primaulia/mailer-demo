@@ -3,4 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  after_create :send_welcome_email
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+    subscribe_to_newsletter
+  end
+
+  def subscribe_to_newsletter
+    SubscribeToNewsletterService.new(self).call
+  end
 end

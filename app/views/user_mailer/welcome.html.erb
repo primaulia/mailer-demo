@@ -1,0 +1,31 @@
+<preview>Yo <%= @user.name %>! Welcome to Bali 🇮🇩!</preview>
+<div class="container">
+  <img class="mx-auto mt-4 mb-3" width="42" height="30" src="https://d1vki863cvir6c.cloudfront.net/uploads/topic/image/210/lewagon-logo.png" />
+
+  <div class="card mb-4" style="border-top: 5px solid #FE0F15;">
+    <div class="card-body">
+      <img class="mx-auto" width="100" height="100" src="https://d3rlubkewr7oe0.cloudfront.net/production/photos/320x200/809278619209872118_driver.jpg?w=100&h=100&dpr=2&fit=crop&mask=ellipse&crop=faces&faceindex=1&fm=png" />
+      <h4 class="text-center">Thanks for signing up <%= @user.name.capitalize  %>!</h4>
+      <h5 class="text-muted text-center"><%= Time.now.strftime("%d/%m/%Y %H:%M") %></h5>
+
+      <!-- we can only use suffix "_url" in mail -->
+      <h6>
+        Go to
+        <%= link_to 'site!', root_url %>
+      </h6>
+
+      <hr/>
+
+      <h5 class="text-center"><strong>User Details</strong></h5>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td style="border-top: 0;">email</td>
+            <td style="border-top: 0;" class="text-right"><%= @user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
