@@ -1,4 +1,5 @@
-# app/services/subscribe_to_newsletter_service.rb
+# A helper class to sync your devise users with Mailchimp audience
+
 class SubscribeToNewsletterService
   def initialize(user)
     @user = user
